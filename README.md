@@ -13,7 +13,7 @@ git clone https://github.com/Hadi493/Election26OSD.git
 cd Election26OSD
 ```
 
-Open two terminal and run frontend and backend.
+Open two terminals and run frontend and backend.
 
 ```bash
 cd Election26OSD/frontend/
