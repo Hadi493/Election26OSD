@@ -1,0 +1,59 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.npm/
+.pnpm/
+.yarn/
+
+# dotenv files
+.env
+.env*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+.vscode/
+
+# Build artifacts
+dist/
+build/
+*.backup
+*.swp
+.next/
+out/
+
+# Database
+database.sqlite
+
+# Screenshot
+screenshot.png
+
+# Backend specific ignores
+backend/node_modules/
+backend/package-lock.json
+
+# Frontend specific ignores
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/package-lock.json
+
+# misc
+*.sublime-project
+*.sublime-workspace
+.idea/
+.project
+.classpath
+.settings/
+*.log
+*.ftlh
