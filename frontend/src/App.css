@@ -1,101 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-brand-color: #007bff; /* A vibrant primary color */
+  --secondary-brand-color: #6c757d; /* A subtle secondary color */
+  --background-light: #f4f7f6; /* Lighter background for light mode */
+  --surface-light: #ffffff; /* Card/component background in light mode */
+  --text-color-light: #2c3e50; /* Darker text for readability in light mode */
+  --border-color-light: #e0e6ed; /* Light borders */
+  --shadow-light: rgba(0, 0, 0, 0.08); /* Subtle shadow */
+
+  /* Specific component colors for light mode */
+  --header-text-light: var(--primary-brand-color);
+  --navbar-bg-light: var(--surface-light);
+  --navbar-link-light: var(--text-color-light);
+  --form-control-bg-light: var(--surface-light);
+  --form-control-border-light: var(--border-color-light);
+  --alert-info-bg-light: #d1ecf1;
+  --alert-info-text-light: #0c5460;
+  --alert-warning-bg-light: #fff3cd;
+  --alert-warning-text-light: #856404;
+  --alert-danger-bg-light: #f8d7da;
+  --alert-danger-text-light: #721c24;
+}
+
+[data-bs-theme='dark'] {
+  --primary-brand-color: #66b3ff; /* Lighter primary for dark mode contrast */
+  --secondary-brand-color: #98a6ad; /* Lighter secondary for dark mode contrast */
+  --background-dark: #1f2a38; /* Darker background for dark mode */
+  --surface-dark: #2c3e50; /* Card/component background in dark mode */
+  --text-color-dark: #ecf0f1; /* Lighter text for dark mode */
+  --border-color-dark: #3a4b60; /* Dark borders */
+  --shadow-dark: rgba(0, 0, 0, 0.25); /* More prominent shadow in dark mode */
+
+  /* Map light mode variables to dark mode equivalents */
+  --background-light: var(--background-dark);
+  --surface-light: var(--surface-dark);
+  --text-color-light: var(--text-color-dark);
+  --border-color-light: var(--border-color-dark);
+  --shadow-light: var(--shadow-dark);
+
+  --header-text-light: var(--primary-brand-color);
+  --navbar-bg-light: var(--surface-dark);
+  --navbar-link-light: var(--text-color-dark);
+  --form-control-bg-light: var(--surface-dark);
+  --form-control-border-light: var(--border-color-dark);
+  --alert-info-bg-light: #17a2b8; /* Darker info alert */
+  --alert-info-text-light: #e0f7fa;
+  --alert-warning-bg-light: #ffc107; /* Darker warning alert */
+  --alert-warning-text-light: #343a40;
+  --alert-danger-bg-light: #dc3545; /* Darker danger alert */
+  --alert-danger-text-light: #ffe3e6;
+}
+
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #f8f9fa; /* Light gray background */
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
-  /* App.css additions */
-  .App {
-    text-align: center;
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  .card {
-      border: none;
-      border-radius: 0.75rem;
-      transition: all 0.3s ease-in-out;
-  }
-  
-  .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
-  }
-  
-  .card-header {
-      border-radius: 0.75rem 0.75rem 0 0 !important;
-      font-weight: bold;
-      font-size: 1.25rem;
-  }
-  
-  .form-select {
-      border-radius: 0.5rem;
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
-  }
-  
-  .img-fluid {
-      max-height: 400px; /* Limit height of map images */
-      object-fit: contain; /* Ensure image is contained within its aspect ratio */
-  }
-  
-  .spinner-border {
-      width: 3rem;
-      height: 3rem;
-  }
-  
-  .vh-100 {
-      height: 100vh;
-  }
-  
-  .display-4 {
-      font-weight: 600;
-      color: #343a40;
-  }
-  
-  .alert {
-      border-radius: 0.5rem;
-  }
-  
-  .text-dark {
-    color: #343a40 !important;
-  }
-  
-  .bg-warning {
-    background-color: #ffc107 !important;
-  }
-  
-  /* Custom styles for select backgrounds */
-  .card-header.bg-primary {
-    background-color: #007bff !important;
-  }
-  
-  .card-header.bg-success {
-    background-color: #28a745 !important;
-  }
-  
-  .card-header.bg-info {
-    background-color: #17a2b8 !important;
-  }
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-light);
+  color: var(--text-color-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0; /* Remove padding here, add to container-fluid instead */
+  max-width: 100%; /* Make app full width */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.App-header {
+  width: 100%;
+  background-color: var(--navbar-bg-light);
+  box-shadow: 0 2px 10px var(--shadow-light);
+  margin-bottom: 2.5rem;
+  padding: 0.5rem 1rem; /* Adjust padding for navbar */
+  border-bottom: none; /* Remove bottom border */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: var(--primary-brand-color) !important; /* Ensure brand color is applied */
+  font-size: 1.75rem; /* Adjust font size for brand */
+  transition: color 0.3s ease;
+}
+
+.navbar-toggler {
+  border-color: var(--border-color-light);
+  color: var(--text-color-light);
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23343a40' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+[data-bs-theme='dark'] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f8f9fa' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-nav .nav-item {
+  margin: 0 0.75rem;
+}
+
+.navbar-nav .nav-link {
+  color: var(--navbar-link-light);
+  font-weight: 600;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-brand-color);
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Custom Dark Mode Toggle Styles */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.dark-mode-toggle .checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.dark-mode-toggle .label {
+  background-color: var(--text-color-light); /* Use text color for label background */
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  height: 26px;
+  width: 50px;
+  transform: scale(1);
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle .label .fa-moon {
+  color: #f1c40f;
+  font-size: 0.8rem;
+  transition: opacity 0.3s ease;
+  opacity: 1; /* Visible in light mode */
+}
+
+.dark-mode-toggle .label .fa-sun {
+  color: #f39c12;
+  font-size: 0.8rem;
+  transition: opacity 0.3s ease;
+  opacity: 0; /* Hidden in light mode */
+}
+
+.dark-mode-toggle .checkbox:checked + .label .fa-moon {
+  opacity: 0; /* Hidden in dark mode */
+}
+
+.dark-mode-toggle .checkbox:checked + .label .fa-sun {
+  opacity: 1; /* Visible in dark mode */
+}
+
+.dark-mode-toggle .label .ball {
+  background-color: var(--surface-light); /* Use surface color for ball */
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transform: translateX(0px);
+  transition: transform 0.3s linear, background-color 0.3s ease;
+}
+
+.dark-mode-toggle .checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.dark-mode-toggle .checkbox:checked + .label {
+  background-color: var(--secondary-brand-color); /* Darker background when checked */
+}
+
+/* Ensure text color is appropriate for the label */
+.navbar-nav .nav-item .dark-mode-toggle .label {
+  color: var(--text-color-light);
+}
+
+/* General component styling remains */
+
+/* Main content container adjustments */
+.container-fluid {
+  padding: 0 2rem; /* Add horizontal padding to main content */
+  max-width: 1200px; /* Constrain content width */
+}
+
+.card {
+  background-color: var(--surface-light);
+  border: 1px solid var(--border-color-light);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 1.5rem; /* Consistent spacing */
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px var(--shadow-light);
+}
+
+.card-header {
+  background-color: transparent; /* Rely on card background */
+  border-bottom: 1px solid var(--border-color-light);
+  color: var(--primary-brand-color);
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 1rem 1.5rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.form-select {
+  background-color: var(--form-control-bg-light);
+  color: var(--text-color-light);
+  border: 1px solid var(--form-control-border-light);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  height: auto; /* Allow content to dictate height */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-select:focus {
+  border-color: var(--primary-brand-color);
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.img-fluid {
+  max-height: 450px; /* Slightly increase map image size */
+  object-fit: contain;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color-light);
+}
+
+/* Specific styling for alerts to use new variables */
+.alert {
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.alert-info {
+  background-color: var(--alert-info-bg-light);
+  color: var(--alert-info-text-light);
+  border-color: var(--alert-info-bg-light); /* Use bg for border color */
+}
+
+.alert-warning {
+  background-color: var(--alert-warning-bg-light);
+  color: var(--alert-warning-text-light);
+  border-color: var(--alert-warning-bg-light);
+}
+
+.alert-danger {
+  background-color: var(--alert-danger-bg-light);
+  color: var(--alert-danger-text-light);
+  border-color: var(--alert-danger-bg-light);
+}
+
+.spinner-border {
+  color: var(--primary-brand-color);
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.vh-100 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
